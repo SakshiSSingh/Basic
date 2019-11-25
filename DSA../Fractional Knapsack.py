@@ -25,3 +25,36 @@ for i in dsort:
             wsum+=capacity-wsum
         
 print(vsum)
+
+
+"""
+Practice GFG Knapsack
+"""
+
+
+t = int(input())
+dictt={}
+v1 = []
+for i in range(t):
+    totalValue = 0
+    dictt={}
+    dsort=[]
+    n, w = map(int, input().split())
+    d = [int(x) for x in input().split()]
+
+    for j in range(0, len(d),2):
+        dictt['%.2f'%(d[j]/d[j+1])] = [d[j], d[j+1]]
+#{6: [60, 10], 5: [100, 20], 4: [120, 30]}
+    print(dictt)
+    dsort = sorted(dictt.keys(), reverse = True)
+    for k in dsort:
+        if w-dictt[k][1] >=0:
+            w -= dictt[k][1]
+            totalValue += dictt[k][0]
+        else:
+            totalValue += float(k) * dictt[k][1]
+            break
+##v1.append('%.2f'%vsum)
+##print(*v1, sep="\n")
+
+print(totalValue)
