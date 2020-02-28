@@ -13,3 +13,5 @@ def height(root):
 
     else:
         return 0
+   
+Link: https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem
